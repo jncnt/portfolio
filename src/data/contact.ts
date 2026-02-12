@@ -13,11 +13,11 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'Email',
-    url: 'mailto:jincecaritan13@example.com',
+    url: 'mailto:jincecaritan13@gmail.com',
     icon: 'Mail'
   }
 ];
 
-export const contactEmail = 'jincecaritan13@example.com';
+export const contactEmail = 'jincecaritan13@gmail.com.com';
 export const contactName = 'Jincent Caritan';
 export const contactLocation = 'Philippines (Remote-friendly)';

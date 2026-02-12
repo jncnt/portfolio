@@ -14,6 +14,6 @@ export const certifications: Certification[] = [
     title: 'Web Development Specialization',
     organization: 'Coursera',
     year: 2023,
-    image: '/images/cert-webdev.svg'
+    image: '/images/web-dev.png'
   }
 ];

@@ -15,35 +15,35 @@ export const About: React.FC = () => {
       >
         {/* Text Content */}
         <div className="space-y-4">
-          <p className="text-lg text-gray-300 leading-relaxed">
-            I'm a dedicated Quality Assurance Specialist and Web Developer with a passion for creating
+          <p className="text-lg text-gray-700 leading-relaxed">
+            I'm a dedicated Quality Assurance Specialist and Jumior Software Developer with a passion for creating
             reliable, user-friendly applications. With a strong foundation in both QA methodologies and
             modern web development, I bridge the gap between quality assurance and development.
           </p>
           
-          <p className="text-lg text-gray-300 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed">
             My journey in tech began with a curiosity about how software works, which evolved into a
             professional career spanning QA testing and full-stack web development. I'm committed to
             continuous learning and staying updated with the latest technologies and best practices.
           </p>
 
           <div className="pt-4">
-            <h3 className="text-xl font-semibold text-white mb-4">Key Focus Areas:</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Focus Areas:</h3>
             <ul className="space-y-2">
-              <li className="flex items-center gap-3 text-gray-300">
-                <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
-                Quality Assurance & Test Automation
+              <li className="flex items-center gap-3 text-gray-700">
+                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                Quality Assurance 
               </li>
-              <li className="flex items-center gap-3 text-gray-300">
-                <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
-                Modern Frontend Development (React, TypeScript)
+              <li className="flex items-center gap-3 text-gray-700">
+                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                 Backendend Development (PHP,Laravel)
               </li>
-              <li className="flex items-center gap-3 text-gray-300">
-                <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+              <li className="flex items-center gap-3 text-gray-700">
+                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                 Full-Stack Web Applications
               </li>
-              <li className="flex items-center gap-3 text-gray-300">
-                <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+              <li className="flex items-center gap-3 text-gray-700">
+                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                 User Experience & Performance Optimization
               </li>
             </ul>
@@ -51,32 +51,32 @@ export const About: React.FC = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 gap-4">
+        {/* <div className="grid grid-cols-2 gap-4">
           <Card hoverable={false} delay={0}>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-400 mb-2">5+</div>
-              <p className="text-gray-400">Years in Tech</p>
+              <div className="text-4xl font-bold bg-linear-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent mb-2">5+</div>
+              <p className="text-gray-600">Years in Tech</p>
             </div>
           </Card>
           <Card hoverable={false} delay={0.1}>
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-400 mb-2">20+</div>
-              <p className="text-gray-400">Projects Completed</p>
+              <div className="text-4xl font-bold bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-2">20+</div>
+              <p className="text-gray-600">Projects Completed</p>
             </div>
           </Card>
           <Card hoverable={false} delay={0.2}>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-400 mb-2">100%</div>
-              <p className="text-gray-400">Test Coverage</p>
+              <div className="text-4xl font-bold bg-linear-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent mb-2">100%</div>
+              <p className="text-gray-600">Test Coverage</p>
             </div>
           </Card>
           <Card hoverable={false} delay={0.3}>
             <div className="text-center">
-              <div className="text-4xl font-bold text-pink-400 mb-2">∞</div>
-              <p className="text-gray-400">Always Learning</p>
+              <div className="text-4xl font-bold bg-linear-to-r from-orange-600 to-red-500 bg-clip-text text-transparent mb-2">∞</div>
+              <p className="text-gray-600">Always Learning</p>
             </div>
           </Card>
-        </div>
+        </div> */}
       </motion.div>
     </Section>
   );

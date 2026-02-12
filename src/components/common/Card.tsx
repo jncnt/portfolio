@@ -21,8 +21,8 @@ export const Card: React.FC<CardProps> = ({
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       whileHover={hoverable ? { translateY: -5 } : {}}
-      className={`bg-gray-900/50 border border-gray-800 rounded-lg p-6 transition-all duration-300 ${
-        hoverable ? 'hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10' : ''
+      className={`bg-white border border-gray-200 rounded-xl p-4 sm:p-5 md:p-6 shadow-sm transition-all duration-300 w-full overflow-hidden ${
+        hoverable ? 'hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100' : ''
       } ${className}`}
     >
       {children}

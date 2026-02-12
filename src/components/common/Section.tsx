@@ -17,8 +17,8 @@ export const Section: React.FC<SectionProps> = ({
   className = ''
 }) => {
   return (
-    <section id={id} className={`py-20 px-4 sm:px-6 lg:px-8 ${className}`}>
-      <div className="max-w-7xl mx-auto">
+    <section id={id} className={`py-16 sm:py-20 px-3 sm:px-6 lg:px-8 ${className}`}>
+      <div className="max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,11 +26,11 @@ export const Section: React.FC<SectionProps> = ({
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-xl text-gray-400">{subtitle}</p>
+            <p className="text-xl text-gray-600">{subtitle}</p>
           )}
         </motion.div>
         

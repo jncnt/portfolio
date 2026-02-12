@@ -36,14 +36,14 @@ export const Experience: React.FC = () => {
           >
             {/* Timeline line */}
             {index !== experiences.length - 1 && (
-              <div className="absolute left-8 top-16 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-transparent"></div>
+              <div className="absolute left-8 top-16 bottom-0 w-1 bg-blue-500"></div>
             )}
 
             {/* Timeline card */}
             <Card>
               <div className="flex gap-4">
                 {/* Icon */}
-                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                <div className="shrink-0 w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center">
                   {exp.type === 'work' ? (
                     <Briefcase className="w-8 h-8 text-white" />
                   ) : (
@@ -54,19 +54,19 @@ export const Experience: React.FC = () => {
                 {/* Content */}
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-                    <h3 className="text-xl font-bold text-white">
+                    <h3 className="text-xl font-bold text-gray-900">
                       {exp.title}
                     </h3>
-                    <span className="text-sm text-blue-400 font-medium">
+                    <span className="text-sm text-blue-600 font-medium">
                       {exp.period}
                     </span>
                   </div>
 
-                  <p className="text-purple-300 font-semibold mb-2">
+                  <p className="text-purple-600 font-semibold mb-2">
                     {exp.company}
                   </p>
 
-                  <p className="text-gray-400">
+                  <p className="text-gray-700">
                     {exp.description}
                   </p>
                 </div>

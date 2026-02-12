@@ -24,7 +24,7 @@ export const Certifications: React.FC = () => {
               <div className="flex flex-col h-full">
                 {/* Certificate Image */}
                 <motion.div
-                  className="relative rounded-lg overflow-hidden mb-4 bg-gray-800 h-48 cursor-pointer group"
+                  className="relative rounded-lg overflow-hidden mb-4 bg-gray-200 h-72 cursor-pointer group"
                   whileHover={{ scale: 1.02 }}
                   onClick={() => handleImageClick(cert)}
                 >
@@ -43,13 +43,13 @@ export const Certifications: React.FC = () => {
                 </motion.div>
 
                 {/* Cert Info */}
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {cert.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-2 flex-1">
+                <p className="text-gray-600 text-sm mb-2 flex-1">
                   {cert.organization}
                 </p>
-                <p className="text-blue-400 font-medium text-sm">
+                <p className="text-blue-600 font-medium text-sm">
                   Obtained: {cert.year}
                 </p>
               </div>

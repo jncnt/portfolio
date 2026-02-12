@@ -5,7 +5,7 @@ export const experiences: Experience[] = [
     id: 1,
     title: 'Quality Assurance Specialist',
     company: 'Asia DTWords 24/7 Philippines Inc.',
-    period: 'June 2025 - February 2025',
+    period: 'June 2025 - January 2026',
     description: 'A leading digital localization and content management firm specializing in "e-Multiculturalism".',
     type: 'work'
   },

@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Navigation />
-      <main className="bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white min-h-screen pt-16">
+      <main className="bg-white text-gray-900 min-h-screen pt-16">
         <Hero />
         <About />
         <Skills />
