@@ -93,10 +93,10 @@ export const Contact: React.FC = () => {
           className="space-y-6"
         >
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Let's connect!
             </h3>
-            <p className="text-gray-400 mb-8">
+            <p className="text-gray-700 mb-8">
               Feel free to reach out for collaborations, opportunities, or just to say hi.
               I'm always open to discussing new projects and ideas.
             </p>
@@ -106,20 +106,20 @@ export const Contact: React.FC = () => {
           <Card hoverable={false}>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <Mail className="w-6 h-6 text-blue-400 flex-shrink-0" />
+                <Mail className="w-6 h-6 text-blue-600 shrink-0" />
                 <div>
-                  <p className="text-gray-500 text-sm">Email</p>
-                  <a href={`mailto:${contactEmail}`} className="text-white hover:text-blue-400 transition">
+                  <p className="text-gray-600 text-sm">Email</p>
+                  <a href={`mailto:${contactEmail}`} className="text-gray-900 hover:text-blue-600 transition">
                     {contactEmail}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <MapPin className="w-6 h-6 text-purple-400 flex-shrink-0" />
+                <MapPin className="w-6 h-6 text-purple-600 shrink-0" />
                 <div>
-                  <p className="text-gray-500 text-sm">Location</p>
-                  <p className="text-white">{contactLocation}</p>
+                  <p className="text-gray-600 text-sm">Location</p>
+                  <p className="text-gray-900">{contactLocation}</p>
                 </div>
               </div>
             </div>
@@ -127,20 +127,39 @@ export const Contact: React.FC = () => {
 
           {/* Social Links */}
           <Card hoverable={false}>
-            <h4 className="text-white font-bold mb-4">Connect With Me</h4>
-            <div className="flex gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-                  title={link.name}
-                >
-                  <span className="text-white">{link.name}</span>
-                </a>
-              ))}
+            <h4 className="text-gray-900 font-bold mb-4">Connect With Me</h4>
+            <div className="flex gap-4">
+              {socialLinks.map((link) => {
+                const getImagePath = (name: string) => {
+                  switch (name) {
+                    case 'GitHub':
+                      return '/images/github.png';
+                    case 'LinkedIn':
+                      return '/images/linkedin.png';
+                    case 'Email':
+                      return '/images/gmail.png';
+                    default:
+                      return '/images/github.png';
+                  }
+                };
+
+                return (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 bg-gray-200 hover:bg-blue-600 rounded-lg transition-colors duration-300"
+                    title={link.name}
+                  >
+                    <img 
+                      src={getImagePath(link.name)} 
+                      alt={link.name}
+                      className="w-6 h-6 object-contain"
+                    />
+                  </a>
+                );
+              })}
             </div>
           </Card>
         </motion.div>
@@ -156,7 +175,7 @@ export const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name Input */}
               <div>
-                <label htmlFor="name" className="block text-white font-medium mb-2">
+                <label htmlFor="name" className="block text-gray-900 font-medium mb-2">
                   Your Name
                 </label>
                 <input
@@ -166,14 +185,14 @@ export const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
-                  placeholder="John Doe"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
+                  placeholder=""
                 />
               </div>
 
               {/* Email Input */}
               <div>
-                <label htmlFor="email" className="block text-white font-medium mb-2">
+                <label htmlFor="email" className="block text-gray-900 font-medium mb-2">
                   Your Email
                 </label>
                 <input
@@ -183,14 +202,14 @@ export const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
-                  placeholder="john@example.com"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
+                  placeholder=""
                 />
               </div>
 
               {/* Message Input */}
               <div>
-                <label htmlFor="message" className="block text-white font-medium mb-2">
+                <label htmlFor="message" className="block text-gray-900 font-medium mb-2">
                   Message
                 </label>
                 <textarea
@@ -200,7 +219,7 @@ export const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition resize-none"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition resize-none"
                   placeholder="Your message here..."
                 ></textarea>
               </div>
@@ -210,7 +229,7 @@ export const Contact: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400"
+                  className="p-4 bg-green-50 border border-green-300 rounded-lg text-green-700"
                 >
                   ✓ Message sent successfully! I'll get back to you soon.
                 </motion.div>
@@ -220,7 +239,7 @@ export const Contact: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400"
+                  className="p-4 bg-red-50 border border-red-300 rounded-lg text-red-700"
                 >
                   ✕ {error}
                 </motion.div>
@@ -238,7 +257,7 @@ export const Contact: React.FC = () => {
                 {loading ? 'Sending...' : 'Send Message'}
               </Button>
 
-              <p className="text-xs text-gray-500 text-center mt-4">
+              <p className="text-xs text-gray-600 text-center mt-4">
                 Note: To use the email form, configure EmailJS credentials in the component.
                 Alternatively, email me directly at {contactEmail}
               </p>

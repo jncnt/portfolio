@@ -25,9 +25,14 @@ export interface Experience {
   type: 'work' | 'education';
 }
 
+export interface SkillItem {
+  name: string;
+  image?: string;
+}
+
 export interface Skill {
   category: string;
-  items: string[];
+  items: (string | SkillItem)[];
 }
 
 export interface SocialLink {

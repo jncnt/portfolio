@@ -56,27 +56,27 @@ export const Hero: React.FC = () => {
             {/* Content Column */}
             <motion.div variants={itemVariants} className="text-center lg:text-left">
               {/* Name */}
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+              <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
                 Jincent Caritan
               </h1>
 
               {/* Title */}
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-6 flex-wrap">
                 <div className="flex items-center gap-2">
-                  <Code className="w-6 h-6 text-blue-400" />
-                  <h2 className="text-2xl md:text-3xl text-gray-300">Web Developer</h2>
+                  <Code className="w-6 h-6 text-blue-600" />
+                  <h2 className="text-2xl md:text-3xl text-gray-700">Junior Software Developer</h2>
                 </div>
-                <span className="text-gray-500">|</span>
+                <span className="text-gray-400">|</span>
                 <div className="flex items-center gap-2">
-                  <Bug className="w-6 h-6 text-purple-400" />
-                  <h2 className="text-2xl md:text-3xl text-gray-300">QA Specialist</h2>
+                  <Bug className="w-6 h-6 text-purple-600" />
+                  <h2 className="text-2xl md:text-3xl text-gray-700">QA Specialist</h2>
                 </div>
               </div>
 
               {/* Bio */}
               <motion.p
                 variants={itemVariants}
-                className="text-lg md:text-xl text-gray-400 mb-8"
+                className="text-lg md:text-xl text-gray-700 mb-8"
               >
                 Passionate about building reliable, user-friendly, and high-quality web applications.
                 Based in Philippines • Remote-friendly • Always learning
@@ -115,11 +115,11 @@ export const Hero: React.FC = () => {
             transition={{ duration: 2, repeat: Infinity }}
             className="mt-20 flex justify-center"
           >
-            <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
+            <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 h-2 bg-blue-400 rounded-full mt-2"
+                className="w-1 h-2 bg-blue-600 rounded-full mt-2"
               ></motion.div>
             </div>
           </motion.div>
