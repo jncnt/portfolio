@@ -1,83 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Section } from '../common/Section';
-import { Card } from '../common/Card';
+import { User, MapPin, GraduationCap } from 'lucide-react';
 
 export const About: React.FC = () => {
+  const details = [
+    { icon: MapPin, label: 'Location', value: 'Cebu City, Philippines' },
+    // { icon: Calendar, label: 'Status', value: 'Available for Remote' },
+    { icon: GraduationCap, label: 'Education', value: 'Associate in Computer Technology Major in Software Development' },
+    { icon: User, label: 'Focus', value: 'Software Developer & QA' },
+  ];
+
   return (
-    <Section id="about" title="About Me">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="grid md:grid-cols-2 gap-8 items-center"
-      >
-        {/* Text Content */}
-        <div className="space-y-4">
-          <p className="text-lg text-gray-700 leading-relaxed">
-            I'm a dedicated Quality Assurance Specialist and Jumior Software Developer with a passion for creating
-            reliable, user-friendly applications. With a strong foundation in both QA methodologies and
-            modern web development, I bridge the gap between quality assurance and development.
-          </p>
-          
-          <p className="text-lg text-gray-700 leading-relaxed">
-            My journey in tech began with a curiosity about how software works, which evolved into a
-            professional career spanning QA testing and full-stack web development. I'm committed to
-            continuous learning and staying updated with the latest technologies and best practices.
-          </p>
-
-          <div className="pt-4">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Focus Areas:</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-3 text-gray-700">
-                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                Quality Assurance 
-              </li>
-              <li className="flex items-center gap-3 text-gray-700">
-                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                 Backendend Development (PHP,Laravel)
-              </li>
-              <li className="flex items-center gap-3 text-gray-700">
-                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                Full-Stack Web Applications
-              </li>
-              <li className="flex items-center gap-3 text-gray-700">
-                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                User Experience & Performance Optimization
-              </li>
-            </ul>
+    <Section
+      id="about"
+      title="About Me"
+      subtitle="A brief introduction to my background, passion, and professional journey."
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="space-y-6"
+        >
+          <div className="glass-card p-8 bg-white border-slate-200 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#F77F00]/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-[#F77F00]/10 transition-colors" />
+            <p className="text-xl text-slate-900 leading-relaxed relative z-10 font-bold">
+              I am a <span className="text-[#F77F00] font-black">Junior Software Developer</span> and <span className="text-[#F77F00] font-black">QA Specialist</span> driven by the challenge of creating high-quality, bug-free web applications.
+            </p>
+            <p className="text-lg text-slate-900 leading-relaxed mt-4 font-bold">
+              With a strong foundation in modern web technologies and a meticulous eye for detail, I strive to bridge the gap between complex technical requirements and seamless user experiences.
+            </p>
           </div>
-        </div>
 
-        {/* Stats Cards */}
-        {/* <div className="grid grid-cols-2 gap-4">
-          <Card hoverable={false} delay={0}>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-linear-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent mb-2">5+</div>
-              <p className="text-gray-600">Years in Tech</p>
+          <div className="grid grid-cols-2 gap-4">
+            {details.map((detail, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="glass-card p-4 flex items-center gap-3 border-slate-100 hover:border-orange-200 transition-colors"
+              >
+                <div className="p-2 rounded-lg bg-orange-50 text-[#F77F00]">
+                  <detail.icon size={20} />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-400 font-black uppercase tracking-wider">{detail.label}</p>
+                  <p className="text-sm text-slate-900 font-black">{detail.value}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative"
+        >
+          <div className="glass-card p-8 border-slate-200 bg-linear-to-br from-white to-slate-50">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <span className="w-8 h-8 rounded-lg bg-[#F77F00] flex items-center justify-center text-sm text-white italic">"</span>
+              My Philosophy
+            </h3>
+            <div className="space-y-6">
+              {[
+                { title: 'Quality First', text: 'I believe that software is only as good as its weakest link. Meticulous testing is a core part of my process.' },
+                { title: 'Continuous Learning', text: "Committed to staying at the forefront of modern web standards and best practices." },
+                { title: 'User-Centricity', text: 'Focusing on creating intuitive interfaces that make complex tasks feel simple.' }
+              ].map((item, i) => (
+                <div key={i} className="relative pl-6 border-l-2 border-orange-200">
+                  <h4 className="text-lg font-black text-slate-900 mb-1">{item.title}</h4>
+                  <p className="text-slate-900 text-sm leading-relaxed font-bold">{item.text}</p>
+                </div>
+              ))}
             </div>
-          </Card>
-          <Card hoverable={false} delay={0.1}>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-2">20+</div>
-              <p className="text-gray-600">Projects Completed</p>
-            </div>
-          </Card>
-          <Card hoverable={false} delay={0.2}>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-linear-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent mb-2">100%</div>
-              <p className="text-gray-600">Test Coverage</p>
-            </div>
-          </Card>
-          <Card hoverable={false} delay={0.3}>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-linear-to-r from-orange-600 to-red-500 bg-clip-text text-transparent mb-2">∞</div>
-              <p className="text-gray-600">Always Learning</p>
-            </div>
-          </Card>
-        </div> */}
-      </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </Section>
   );
 };
