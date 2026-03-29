@@ -1,9 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Section } from '../common/Section';
-import { Card } from '../common/Card';
 import { skills } from '../../data/skills';
-import type { SkillItem } from '../../types/index';
+import { Code2, Smartphone, Globe, Database, Terminal, ShieldCheck } from 'lucide-react';
+
+const categoryIcons: Record<string, any> = {
+  'Frontend': Globe,
+  'Backend': Database,
+  'Mobile': Smartphone,
+  'Tools': Terminal,
+  'Quality Assurance': ShieldCheck,
+  'Core Skills': Code2,
+};
 
 export const Skills: React.FC = () => {
   const containerVariants = {
@@ -21,51 +29,65 @@ export const Skills: React.FC = () => {
     visible: {
       opacity: 1,
       y: 0,
+      transition: { duration: 0.5 },
     },
   };
 
   return (
-    <Section id="skills" title="Skills & Expertise">
+    <Section
+      id="skills"
+      title="Technical Expertise"
+      subtitle="A comprehensive overview of my skills in software development and quality assurance."
+    >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid md:grid-cols-2 gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        {skills.map((skillGroup, index) => (
-          <Card key={skillGroup.category} delay={index * 0.1}>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-linear-to-b from-blue-600 to-blue-500 rounded"></span>
-              {skillGroup.category}
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {skillGroup.items.map((skill) => {
-                const skillName = typeof skill === 'string' ? skill : skill.name;
-                const skillImage = typeof skill === 'string' ? undefined : skill.image;
-                
-                return (
-                  <motion.div
-                    key={skillName}
-                    variants={itemVariants}
-                    className="px-4 py-2 bg-linear-to-r from-blue-50 to-blue-100 rounded-full hover:from-blue-100 hover:to-blue-200 border border-blue-200 transition-all duration-300 text-sm font-medium flex items-center gap-2"
-                  >
-                    {skillImage && (
-                      <img 
-                        src={skillImage} 
-                        alt={skillName}
-                        className="w-5 h-5 object-contain"
-                      />
-                    )}
-                    <span className="text-blue-700 hover:text-blue-900">
+        {skills.map((skillGroup) => {
+          const Icon = categoryIcons[skillGroup.category] || Code2;
+          return (
+            <motion.div
+              key={skillGroup.category}
+              variants={itemVariants}
+              className="glass-card p-6 border-slate-100 hover:border-orange-200 group transition-all duration-300"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 rounded-xl bg-orange-50 text-[#F77F00] group-hover:scale-110 transition-transform">
+                  <Icon size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 leading-tight">
+                  {skillGroup.category}
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {skillGroup.items.map((skill) => {
+                  const skillName = typeof skill === 'string' ? skill : skill.name;
+                  const skillImage = typeof skill === 'string' ? undefined : skill.image;
+
+                  return (
+                    <div
+                      key={skillName}
+                      className="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-900 text-sm font-bold border border-slate-100 hover:bg-orange-50 hover:text-[#F77F00] hover:border-orange-100 transition-colors flex items-center gap-2"
+                    >
+                      {skillImage && (
+                        <img
+                          src={skillImage}
+                          alt={skillName}
+                          className="w-4 h-4 object-contain"
+                        />
+                      )}
                       {skillName}
-                    </span>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </Card>
-        ))}
+                    </div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          );
+        })}
       </motion.div>
     </Section>
   );

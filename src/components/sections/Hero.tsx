@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Bug } from 'lucide-react';
 import { Button } from '../common/Button';
 
 export const Hero: React.FC = () => {
@@ -9,120 +8,123 @@ export const Hero: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8 },
+      transition: { type: 'spring' as const, stiffness: 100, damping: 20 },
     },
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-      <div className="max-w-7xl mx-auto w-full">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-10 px-4">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 -z-10 bg-white">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-orange-100/30 rounded-full blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            x: [0, -100, 0],
+            y: [0, 50, 0],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-amber-50/40 rounded-full blur-[100px]"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          className="lg:col-span-7 space-y-8 text-center lg:text-left order-2 lg:order-1"
         >
-          {/* Animated background elements */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="absolute inset-0 -z-10"
-          >
-            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600 rounded-full blur-3xl opacity-20"></div>
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h2 className="text-xl md:text-2xl font-medium text-slate-600">
+              Hi, I'm <span className="text-slate-900 font-bold">Jincent Caritan</span>
+            </h2>
+            <h1 className="text-5xl md:text-7xl lg:text-7xl font-black text-slate-900 leading-[1.1] tracking-tight">
+              Software <span className="text-[#F77F00]">Developer</span>
+              <br />
+              <span className="text-slate-900">& QA Specialist</span>
+            </h1>
           </motion.div>
 
-          {/* Two Column Layout: Profile and Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Profile Column */}
-            <motion.div variants={itemVariants} className="flex justify-center lg:justify-start">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-lg md:text-xl text-slate-900 mb-10 leading-relaxed max-w-2xl mx-auto md:mx-0 font-medium"
+          >
+            A dedicated <span className="text-[#F77F00] font-bold">Quality Assurance Specialist</span> and
+            <span className="text-[#F77F00] font-bold"> Full-stack Developer</span> with a passion for building
+            and testing high-quality digital products.
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
+            <Button variant="primary" size="lg" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
+              View My Work
+            </Button>
+            <Button variant="outline" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              Let's Talk
+            </Button>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div variants={itemVariants} className="flex gap-6 justify-center lg:justify-start">
+            {[
+              { icon: "/images/github.png", href: 'https://github.com/jncnt' },
+              { icon: "/images/linkedin.png", href: 'https://www.linkedin.com/in/jincent-caritan-412237308/' },
+              { icon: "/images/gmail.png", href: 'mailto:jincecaritan13@gmail.com' },
+            ].map((social, i) => (
+              <motion.a
+                key={i}
+                href={social.href}
+                whileHover={{ y: -5, scale: 1.1 }}
+                className="p-3 glass-card rounded-full flex items-center justify-center hover:bg-orange-50 transition-all border-slate-200 overflow-hidden"
+              >
+                <img
+                  src={social.icon}
+                  alt="Social"
+                  className="w-6 h-6 object-contain"
+                />
+              </motion.a>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Profile Image Column */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, type: 'spring' }}
+          className="lg:col-span-5 flex justify-center order-1 lg:order-2"
+        >
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-orange-100 rounded-[3rem] blur-2xl opacity-50 transition-opacity duration-500" />
+            <div className="relative glass-card p-3 rounded-[2.5rem] border-white shadow-2xl">
               <img
                 src="/images/profile.png"
-                alt="Profile"
-                className="w-56 h-56 md:w-80 md:h-80 rounded-lg object-cover shadow-lg border-2 border-blue-400"
+                alt="Jincent Caritan"
+                className="w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] rounded-[2rem] object-cover"
               />
-            </motion.div>
-
-            {/* Content Column */}
-            <motion.div variants={itemVariants} className="text-center lg:text-left">
-              {/* Name */}
-              <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-                Jincent Caritan
-              </h1>
-
-              {/* Title */}
-              <div className="flex items-center justify-center lg:justify-start gap-3 mb-6 flex-wrap">
-                <div className="flex items-center gap-2">
-                  <Code className="w-6 h-6 text-blue-600" />
-                  <h2 className="text-2xl md:text-3xl text-gray-700">Junior Software Developer</h2>
-                </div>
-                <span className="text-gray-400">|</span>
-                <div className="flex items-center gap-2">
-                  <Bug className="w-6 h-6 text-purple-600" />
-                  <h2 className="text-2xl md:text-3xl text-gray-700">QA Specialist</h2>
-                </div>
-              </div>
-
-              {/* Bio */}
-              <motion.p
-                variants={itemVariants}
-                className="text-lg md:text-xl text-gray-700 mb-8"
-              >
-                Passionate about building reliable, user-friendly, and high-quality web applications.
-                Based in Philippines • Remote-friendly • Always learning
-              </motion.p>
-
-              {/* CTA Buttons */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
-              >
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => {
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              View Projects <ArrowRight size={20} />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Contact Me
-            </Button>
-          </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="mt-20 flex justify-center"
-          >
-            <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-              <motion.div
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 h-2 bg-blue-600 rounded-full mt-2"
-              ></motion.div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

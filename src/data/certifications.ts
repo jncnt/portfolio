@@ -11,9 +11,9 @@ export const certifications: Certification[] = [
 
   {
     id: 3,
-    title: 'Web Development Specialization',
-    organization: 'Coursera',
-    year: 2023,
+    title: 'DICT-MAD008 Introduction to Web Development',
+    organization: 'DICT',
+    year: 2024,
     image: '/images/web-dev.png'
   }
 ];
